@@ -1,5 +1,5 @@
 function [net_param] = InitNetParam
-train_param.lr = 0.001;
+train_param.lr = 0.01;
 train_param.gamma = 0.1;
 train_param.mm = 0.9;
 train_param.weight_decay = 0.0005;
@@ -11,8 +11,14 @@ train_param.display_interval = 1000000;
 test_param.batch_size = 1000;
 test_param.test_interval = 2000;
 % network architecture. Even entries indicates the feature dimension of input and output, respectively. 
-architecture = {'input',[784] 'fc', [784, 256], 'relu', [256], 'fc', [256, 10], 'euclidean', [10,1]};
-
+% architecture = {'input',[784], 'fc', [784, 64], 'relu', [64],...
+%     'fc', [64, 64], 'relu', [64],...
+%      'fc', [64, 32], 'relu', [32],...
+%      'fc', [32, 32], 'relu', [32],...
+%     'fc', [32, 10], 'euclidean', [10,1]};
+architecture = {'input',[784], 'fc', [784, 64], 'relu', [64],...
+    'fc', [64, 64], 'relu', [64],...
+    'fc', [64, 10], 'euclidean', [10,1]};
 net_param.train_param = train_param;
 net_param.test_param = test_param;
 net_param.architecture = architecture;
