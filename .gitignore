@@ -1,4 +1,6 @@
 *.m~
 *.mat
 *.swp
-
+*.fig
+*.zip
+*.bmp
