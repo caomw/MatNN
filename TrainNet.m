@@ -16,8 +16,9 @@ for iter = 1: max_iter
         batch_id = 1;
     end
     net.layers{1}.batch_id = batch_id;
-    net.feature_train{2}.input.data= data_batch.data; % assign a batch of training sample to the input data of the first trainable layer.
-    net.feature_train{end-1}.input.label = data_batch.label; % assign the corresponding labels to the input label of the loss layer. 
+    net.feature_train{2}.input.data= data_batch.data; % feed a batch of training sample to the input data of the first trainable layer.
+    net.feature_train{end-1}.input.label = data_batch.label; % feed the corresponding labels to the input label of the loss layer. 
+    net.feature_train{end-1}.input.posterior = data_batch.posterior; % feed the corresponding posterior to the input posterior of the loss layer. 
     %% forward trainable layers
     for layer_id = 2:length(net.layers)
         net.feature_train{layer_id+1}.input.data = net.layers{layer_id}.forward(net.feature_train{layer_id}.input, net.layers{layer_id});
