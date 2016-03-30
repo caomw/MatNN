@@ -1,6 +1,7 @@
 addpath('mnistHelper/');
 load('train-SR-data-v2.mat');
 data = double([data_ori; data_filtered]);
+label = double(label);
 data_mean = mean(data, 2);
 data_std = std(data, [], 2);
 data = bsxfun(@rdivide, bsxfun(@minus, data, data_mean), data_std + eps);
@@ -23,7 +24,7 @@ test_set.label = [];
 % data_set = PrepareTrainData();
 % test_set = PrepareTestData(data_set.mean, data_set.std);
 net_param = InitNetParam;
-% net = InitNet(net_param, data_set, test_set);
+net = InitNet(net_param, data_set, test_set);
 clear data_set test_set;
 
 net = TrainNet(net);
