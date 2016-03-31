@@ -35,7 +35,7 @@ for iter = 1: max_iter
             = net.layers{layer_id}.update(net.layers{layer_id}, net.layers_train{layer_id}, mm, lr);
     end
     %% lower learning rate
-    if mod(iter, 10000) == 0
+    if mod(iter, 1000) == 0
         1;
     end
     if mod(iter, step_size) == 0

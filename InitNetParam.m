@@ -8,7 +8,7 @@ train_param.max_iter = 4 * 100000;
 train_param.batch_size = 64;
 % train_param.step_size = 108465;
 train_param.step_size = 100000;
-train_param.display_interval = 5000;
+train_param.display_interval = 500;
 test_param.batch_size = 1000;
 test_param.test_interval = 2000000;
 % network architecture. Even entries indicates the feature dimension of input and output, respectively. 
@@ -29,7 +29,7 @@ architecture = {'input',[405], 'fc', [405, 128], 'relu', [128],...
 %     'fc', [128, 81], 'euclidean', [81,1]};
 architecture = {'gmm_input',[405], 'fc', [405, 128], 'relu', [128],...
     'fc', [128,128], 'relu', [128],...
-    'fc', [128, 81], 'gmm_euclidean', [81,1]};
+    'fc', [128, 8100], 'gmm_euclidean', [8100,1]};
 net_param.train_param = train_param;
 net_param.test_param = test_param;
 net_param.architecture = architecture;
