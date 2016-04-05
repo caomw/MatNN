@@ -23,12 +23,12 @@ output_data = 0.5 * 1/batch_num * output_data * posterior(:);
 %     figure(1); subplot(8,8,i); imshow(reshape(input_data([1:81] + j*81, i), 9, 9),[]);
 % end
 
-for i = 1:64
-    a = reshape(input_data(:,i), feature_dim, [])*posterior(:,i);
-    figure(2); subplot(8,8,i); imshow(reshape(a, 9, 9));
-end
-
-b = reshape(label, 9,9,64);
-for i = 1:64
-    figure(3); subplot(8,8,i); imshow(b(:,:,i));
-end
+% for i = 1:64
+%     a = reshape(input_data(:,i), feature_dim, [])*posterior(:,i);
+%     figure(2); subplot(8,8,i); imshow(reshape(a, 9, 9));
+% end
+% 
+% b = reshape(label, 9,9,64);
+% for i = 1:64
+%     figure(3); subplot(8,8,i); imshow(b(:,:,i));
+% end
