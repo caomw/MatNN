@@ -8,6 +8,7 @@ for net_id = 1
         data = bsxfun(@rdivide, bsxfun(@minus, data, data_mean), data_std + eps);
         posteriors = posteriors';
         net.feature_train{2}.input.data = data;
+        
         for layer_id = 2:length(net.layers)-1
             net.feature_train{layer_id+1}.input.data = net.layers{layer_id}.forward(net.feature_train{layer_id}.input, net.layers{layer_id});
         end

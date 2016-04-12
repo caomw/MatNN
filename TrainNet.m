@@ -30,7 +30,7 @@ for iter = 1: max_iter
             = net.layers{layer_id}.backward(net.feature_train{layer_id}.input, net.feature_train{layer_id+1}.input, net.layers{layer_id}, net.layers_train{layer_id});
     end
     %% update posterior of current batch
-    if iter > 40000
+    if iter > inf
         net.feature_train{1}.input.posterior_diff = net.feature_train{length(net.layers)}.input.posterior_diff;%feed the posterior diff to the input posterior of the loss layer
         [net.feature_train{1}.input.posterior] = net.layers{1}.update(net.layers{1}, net.feature_train{1}.input.posterior, net.feature_train{1}.input.posterior_diff);
     end

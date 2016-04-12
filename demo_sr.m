@@ -1,14 +1,15 @@
 addpath('mnistHelper/');
-load('trainData.mat');
-data = double([low_ori; low_feature]);
+% load('trainData.mat');
+load('trData.mat')
+data = double([X_zca1; X_zca2]);
 label = double(label);
-data_mean = mean(data, 2);
-data_std = std(data, [], 2);
-data = bsxfun(@rdivide, bsxfun(@minus, data, data_mean), data_std + eps);
+% data_mean = mean(data, 2);
+% data_std = std(data, [], 2);
+% data = bsxfun(@rdivide, bsxfun(@minus, data, data_mean), data_std + eps);
 label_mean = mean(label, 2);
 label_std = std(label, [], 2);
 label = bsxfun(@rdivide, bsxfun(@minus, label, label_mean), label_std + eps);
-clear low*;
+clear X*;
 sample_num = size(data, 2);
 test_num = round(sample_num/5);
 train_num = sample_num - test_num;

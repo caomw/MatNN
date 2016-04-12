@@ -9,7 +9,7 @@ train_param.batch_size = 64;
 % train_param.step_size = 108465;
 train_param.step_size = 200000;
 train_param.display_interval = 50;
-train_param.posterior_forgget = 0.95;
+train_param.posterior_forgget = 0.98;
 test_param.batch_size = 1000;
 test_param.test_interval = 2000000;
 % network architecture. Even entries indicates the feature dimension of input and output, respectively. 
